@@ -1,0 +1,94 @@
+#####################################################################################
+# Tensors - A C++ library to work with tensors                                      #
+# Copyright (C) 2004 Dorival de Moraes Pedroso <dorival.pedroso em gmail.com>       #
+#                                                                                   #
+# This file is part of Tensors.                                                     #
+#                                                                                   #
+# Tensors is free software; you can redistribute it and/or modify it under the      #
+# terms of the GNU General Public License as published by the Free Software         #
+# Foundation; either version 2 of the License, or (at your option) any later        #
+# version.                                                                          #
+#                                                                                   #
+# Tensors is distributed in the hope that it will be useful, but WITHOUT ANY        #
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A   #
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.          #
+#                                                                                   #
+# You should have received a copy of the GNU General Public License along with      #
+# Tensors; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, #
+# Fifth Floor, Boston, MA 02110-1301, USA                                           #
+#####################################################################################
+
+                   Tensors - A C++ library to work with tensors
+                        Written by Dorival M. Pedroso (C)
+                      License: GNU General Public License v2
+                             version 1.0 -- 19 Sep 2012
+
+TODO
+====
+           1) correct English mistakes!
+           2) use expression templates to avoid problem with temporary copies
+
+Features
+========
+           1) tensors need not be symmetric
+           2) complex and real numbers are allowed (<Type>)
+           3) any order is allowed (<Dim>)
+           4) ease of use was very much considered => temporary variables
+              are created due to operator overloading ...
+
+Revisions
+=========
+
+ 2012-09-19: version 1.0, Dorival Pedroso
+     1) minor changes to compilation files
+     2) using GIT repository
+     3) bash scripts to process results using Maxima added
+
+ 2005-05-05: version 0.2, Dorival Pedroso
+     1) separate files tensor1.h, tensor2.h, tensor3.h, tensor4.h and operators.h
+     2) set up GNU Autotools for package distribution
+
+ 2004-11-02: version 0.1, Dorival Pedroso
+
+Operators/functionality
+=======================
+
+ From: tensor1.h, tensor2.h, tensor3.h and tensor4.h
+ ---------------------------------------------------
+
+     Tensor times Scalar:
+          T1 = T1 * sc   T2 = T2 * sc   T3 = T3 * sc   T4 = T4 * sc
+
+     Tensor divided by Scalar:
+          T1 = T1 / sc   T2 = T2 / sc   T3 = T3 / sc   T4 = T4 / sc
+
+ From tensoperators.h
+ --------------------
+
+  * dot:
+       sc = T1 * T1   T1 = T1 * T2   T2 = T1 * T3   T3 = T1 * T4
+       T1 = T2 * T1   T2 = T2 * T2   T3 = T2 * T3   T4 = T2 * T4
+       T2 = T3 * T1   T3 = T3 * T2   T4 = T3 * T3
+       T3 = T4 * T1   T4 = T4 * T2
+
+  % double-dot:
+       sc = T2 % T2   T1 = T2 % T3   T2 = T2 % T4
+       T1 = T3 % T2   T2 = T3 % T3   T3 = T3 % T4
+       T2 = T4 % T2   T3 = T4 % T3   T4 = T4 % T4
+
+  & dyadic:
+       T2 = (T1 & T1)  T3 = (T1 & T2)  T4 = (T1 & T3)
+       T3 = (T2 & T1)  T4 = (T2 & T2)
+
+  ^ leaf-dyadic (Rijkl = Lik.Rjl):
+       T4 = (T2 ^ T2)
+
+  | palm-dyadic (Rijkl = Lil.Rjk):
+       T4 = (T2 | T2)
+
+ #############################################################
+ # IMPORTANT NOTICE                                          #
+ # ================                                          #
+ #  It is necessary to enclose the operands with parentheses #
+ #  when using the last three dyadic operators!              #
+ #############################################################
