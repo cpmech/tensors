@@ -14,4 +14,6 @@ examples/ex11
 examples/ex12
 examples/ex13
 examples/stiffmat
+examples/smat2d.go
+examples/smat3d.go
 *.f90
