@@ -16,4 +16,9 @@ examples/ex13
 examples/stiffmat
 examples/smat2d.go
 examples/smat3d.go
+examples/hmat
+examples/matmatmul
+examples/vecmatvecmul
+examples/hmat2d.go
+examples/hmat3d.go
 *.f90
