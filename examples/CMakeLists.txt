@@ -33,6 +33,9 @@ SET(PROGS
     ex12
     ex13
     stiffmat
+    matmatmul
+    vecmatvecmul
+    hmat
 )
 
 SET(TESTS
