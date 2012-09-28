@@ -12,10 +12,12 @@ fi
 # generate f90 file
 IN=smat3d.f90
 OUT=smat3d.go
+NDIM=3
 if [ "$1" -gt 0 ]; then # 2D
     ./stiffmat 1 | maxima
     IN=smat2d.f90
     OUT=smat2d.go
+    NDIM=2
 else
     ./stiffmat | maxima
 fi
@@ -45,7 +47,7 @@ done
 # replace Kmn## with o.K[#+m*3][#+n*3]
 for i in 0 1 2; do
     for j in 0 1 2; do
-        sed -i -e "s/Kmn$i$j/o.K[$i+m*3][$j+n*3]/g" $OUT
+        sed -i -e "s/Kmn$i$j =/o.K[$i+m*$NDIM][$j+n*$NDIM] += coef */g" $OUT
     done
 done
 
