@@ -37,7 +37,7 @@ SET(PROGS
     stiffmat
     matmatmul
     vecmatvecmul
-    hmat
+    hmvec
 )
 
 SET(TESTS
