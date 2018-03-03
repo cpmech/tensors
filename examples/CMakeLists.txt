@@ -43,6 +43,8 @@ SET(PROGS
 SET(TESTS
 )
 
+INCLUDE_DIRECTORIES(${TENSORS_SOURCE_DIR}/lib)
+
 FOREACH(var ${PROGS})
     ADD_EXECUTABLE        (${var} "${var}.cpp")
     TARGET_LINK_LIBRARIES (${var} ${LIBS})

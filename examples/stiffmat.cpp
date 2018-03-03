@@ -24,11 +24,11 @@
 #include <string>
 #include <ginac/ginac.h>
 
-#include <tensors/tensor1.h>
-#include <tensors/tensor2.h>
-#include <tensors/tensor3.h>
-#include <tensors/tensor4.h>
-#include <tensors/operators.h>
+#include <tensor1.h>
+#include <tensor2.h>
+#include <tensor3.h>
+#include <tensor4.h>
+#include <operators.h>
 
 typedef GiNaC::symbol _S;
 
